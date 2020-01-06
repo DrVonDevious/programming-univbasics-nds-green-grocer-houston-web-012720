@@ -10,29 +10,9 @@ def find_item_by_name_in_collection(name, collection)
   result
 end
 
-def consolidate_cart(cart)
-  hash = {}
-  cart.each do |item_hash|
-    item_hash.each do |name, price_hash|
-      if hash[name].nil?
-        hash[name] = price_hash.merge({:count => 1})
-      else
-        hash[name][:count] += 1
-      end
-    end
-  end
-  hash
-end
 
-def apply_coupons(cart, coupons)
-  hash = cart
-  coupons.each do |coupon_hash|
-    # add coupon to cart
-    item = coupon_hash[:item]
 
-    if !hash[item].nil? && hash[item][:count] >= coupon_hash[:num]
-      temp = {"#{item} W/COUPON" => {
-        :price => coupon_hash[:cost],
+> coupon_hash[:cost],
         :clearance => hash[item][:clearance],
         :count => 1
         }
