@@ -1,4 +1,4 @@
-def find_item_by_name_in_collection(name, collection)
+leadef find_item_by_name_in_collection(name, collection)
   i = 0
   result = nil
   while i < collection.length do
